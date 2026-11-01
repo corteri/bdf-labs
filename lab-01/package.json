@@ -1,0 +1,21 @@
+{
+  "name": "lab-01",
+  "version": "1.0.0",
+  "description": "Lab 1 - Node.js and Express server (Backend Development Fundamentals)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:http": "node basic-server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "lab-01"
+  ],
+  "author": "Aditya Srivastava (252U1R8001)",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
