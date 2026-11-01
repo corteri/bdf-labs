@@ -6,9 +6,14 @@ Faculty: Joel Prashanth D
 
 ## Live link
 
-Not deployed yet — _add your Render / Railway URL here once deployed._
+_Deploying — paste the Render URL here once the service is live._
 
-Until then, every endpoint below is evidenced by the screenshots in
+The repository root has a [`render.yaml`](../render.yaml) blueprint, so Render
+creates the service with no manual configuration: **New → Blueprint → pick this
+repository**. Note that the free plan sleeps when idle, so the first request
+after a quiet spell takes a few seconds to wake the service.
+
+Every endpoint below is also evidenced by the screenshots in
 [`screenshots/`](screenshots), captured against the server running locally on
 port 3000.
 
@@ -79,7 +84,8 @@ PORT=4000 npm start   # example: run on a different port
   "author": "Aditya Srivastava (252U1R8001)",
   "license": "ISC",
   "type": "commonjs",
-  "dependencies": { "express": "^5.3.0" }
+  "dependencies": { "express": "^5.3.0" },
+  "engines": { "node": ">=18" }
 }
 ```
 
@@ -95,6 +101,7 @@ PORT=4000 npm start   # example: run on a different port
 | `license` | The terms the code is released under. `ISC` is npm's default. |
 | `type` | The module system for `.js` files — `commonjs` (`require`) or `module` (`import`). |
 | `dependencies` | Packages the project needs **at runtime**, with the version range allowed. `^5.3.0` means "5.3.0 or newer, but below 6.0.0". npm installs these into `node_modules`. |
+| `engines` | The Node versions the project supports. I added this by hand so the host (Render) picks a modern Node rather than guessing. |
 
 `npm init -y` writes this file with defaults and no questions asked. The
 `dependencies` entry appeared by itself when I ran `npm install express`.
