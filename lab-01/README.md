@@ -85,7 +85,7 @@ PORT=4000 npm start   # example: run on a different port
   "license": "ISC",
   "type": "commonjs",
   "dependencies": { "express": "^5.3.0" },
-  "engines": { "node": ">=18" }
+  "engines": { "node": "22.x" }
 }
 ```
 
@@ -101,7 +101,7 @@ PORT=4000 npm start   # example: run on a different port
 | `license` | The terms the code is released under. `ISC` is npm's default. |
 | `type` | The module system for `.js` files — `commonjs` (`require`) or `module` (`import`). |
 | `dependencies` | Packages the project needs **at runtime**, with the version range allowed. `^5.3.0` means "5.3.0 or newer, but below 6.0.0". npm installs these into `node_modules`. |
-| `engines` | The Node versions the project supports. I added this by hand so the host (Render) picks a modern Node rather than guessing. |
+| `engines` | The Node versions the project supports. I added this by hand and pinned it to `22.x` so the host builds on the same major version every time instead of taking whatever is newest. `.node-version` says the same thing in the form some hosts prefer. |
 
 `npm init -y` writes this file with defaults and no questions asked. The
 `dependencies` entry appeared by itself when I ran `npm install express`.
