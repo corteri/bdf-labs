@@ -8,7 +8,7 @@ instructions, endpoint table and screenshots for that lab.
 
 | Lab | Title | Folder | Live |
 | --- | --- | --- | --- |
-| 1 | Node.js and Express server | [`lab-01/`](lab-01) | _pending_ |
+| 1 | Node.js and Express server | [`lab-01/`](lab-01) | <https://bdf-labs-zy2n.onrender.com> |
 
 ## Deploying
 

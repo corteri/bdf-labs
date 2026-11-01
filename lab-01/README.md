@@ -6,16 +6,21 @@ Faculty: Joel Prashanth D
 
 ## Live link
 
-_Deploying — paste the Render URL here once the service is live._
+**https://bdf-labs-zy2n.onrender.com** — deployed on Render (free plan).
 
-The repository root has a [`render.yaml`](../render.yaml) blueprint, so Render
-creates the service with no manual configuration: **New → Blueprint → pick this
-repository**. Note that the free plan sleeps when idle, so the first request
-after a quiet spell takes a few seconds to wake the service.
+| | |
+| --- | --- |
+| Welcome | <https://bdf-labs-zy2n.onrender.com/> |
+| About | <https://bdf-labs-zy2n.onrender.com/about> |
+| Time | <https://bdf-labs-zy2n.onrender.com/time> |
 
-Every endpoint below is also evidenced by the screenshots in
-[`screenshots/`](screenshots), captured against the server running locally on
-port 3000.
+The free plan sleeps when idle, so the **first request after a quiet spell takes
+up to a minute** to wake the service. Later requests are immediate.
+
+The screenshots in [`screenshots/`](screenshots) were taken against this
+deployed URL. The repository root also has a [`render.yaml`](../render.yaml)
+blueprint, so the service can be recreated from scratch with
+**New → Blueprint → pick this repository**.
 
 ## How to run
 
@@ -67,7 +72,7 @@ PORT=4000 npm start   # example: run on a different port
 
 ![An unknown path returns the JSON 404 message](screenshots/04-route-404.png)
 
-**Status code for every route (`curl -i`)**
+**Status code for every route (`curl -i` against the deployed service)**
 
 ![curl -i output showing 200, 200, 200 and 404](screenshots/05-status-codes.png)
 
@@ -124,7 +129,14 @@ the exact version of every one of them.
 | `GET /notfound` | `404 Not Found` | `application/json; charset=utf-8` |
 
 Verified with `curl -i` (screenshot 05) and by opening each route in the
-browser.
+browser, both locally and against the deployed service. On Render the protocol
+shows as `HTTP/2` rather than `HTTP/1.1`, because requests arrive through
+Render's TLS proxy; the status codes are the same.
+
+**Note on `PORT`.** Render assigns the port at runtime and the log shows the
+app starting on `10000`, not `3000`. That works because `server.js` reads
+`process.env.PORT` and only falls back to `3000`. A hardcoded port is the usual
+reason a first deploy fails.
 
 ## Viva questions
 
